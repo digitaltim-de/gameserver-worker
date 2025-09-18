@@ -9,7 +9,7 @@ docker volume create cs2-game-files
 echo "Starting base container and downloading CS2 files..."
 echo "This will take several minutes (downloading ~57GB)..."
 docker run -d --name cs2-temp-base \
-    -e SRCDS_TOKEN="dummy" \
+    -e SRCDS_TOKEN="BD5509414573E7DE1A22571677D28BC4" \
     -e CUSTOMER_ID="base-setup" \
     -v cs2-game-files:/volume-dest \
     cs2-base-with-files
