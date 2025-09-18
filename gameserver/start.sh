@@ -35,5 +35,6 @@ echo "✓ FTP server started"
 service ssh start
 echo "✓ SSH server started"
 
-# Danach das originale CMD/Entrypoint ausführen
-exec "$@"
+echo "=== Starting CS2 Gameserver ==="
+# Starte das originale CS2 Entrypoint
+exec bash /home/steam/entry.sh
