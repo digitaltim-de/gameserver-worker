@@ -9,11 +9,6 @@ if [ -z "${SRCDS_TOKEN}" ]; then
     exit 1
 fi
 
-if [ -z "${PORT}" ]; then
-    echo "❌ Error: PORT environment variable is not set"
-    exit 1
-fi
-
 if [ -z "${CUSTOMER_ID}" ]; then
     echo "❌ Error: CUSTOMER_ID environment variable is not set"
     exit 1
