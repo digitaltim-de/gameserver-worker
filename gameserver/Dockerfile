@@ -7,7 +7,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     vsftpd \
     openssh-server \
     htop \
-    iptables \
  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Standard Environment-Variablen (können beim Container-Start überschrieben werden)
