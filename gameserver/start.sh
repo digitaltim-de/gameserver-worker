@@ -4,8 +4,8 @@ set -e
 echo "=== Gameserver Container Setup ==="
 
 # Überprüfe ob die erforderlichen Environment-Variablen existieren
-if [ -z "${GSLT_TOKEN}" ]; then
-    echo "❌ Error: GSLT_TOKEN environment variable is not set"
+if [ -z "${GSLT}" ]; then
+    echo "❌ Error: GSLT environment variable is not set"
     exit 1
 fi
 
