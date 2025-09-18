@@ -3,6 +3,24 @@ set -e
 
 echo "=== Gameserver Container Setup ==="
 
+# Überprüfe ob die erforderlichen Environment-Variablen existieren
+if [ -z "${GSLT_TOKEN}" ]; then
+    echo "❌ Error: GSLT_TOKEN environment variable is not set"
+    exit 1
+fi
+
+if [ -z "${PORT}" ]; then
+    echo "❌ Error: PORT environment variable is not set"
+    exit 1
+fi
+
+if [ -z "${CUSTOMER_ID}" ]; then
+    echo "❌ Error: CUSTOMER_ID environment variable is not set"
+    exit 1
+fi
+
+echo "✓ All required environment variables are set"
+
 # Konfiguriere Benutzer und Passwörter basierend auf Environment-Variablen
 echo "Setting up users and passwords..."
 
