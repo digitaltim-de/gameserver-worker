@@ -27,16 +27,17 @@ echo "✓ FTP password set for user: $FTP_USER"
 
 echo "=== Starting Services ==="
 
-# FTP starten
+# FTP im Hintergrund starten
 service vsftpd start
 echo "✓ FTP server started"
 
-# SSH-Server starten
+# SSH-Server im Hintergrund starten  
 service ssh start
 echo "✓ SSH server started"
 
 echo "=== Starting CS2 Gameserver ==="
 # Versuche Steam-Verzeichnis Berechtigung zu setzen (falls möglich)
 chown -R steam:steam /home/steam 2>/dev/null || echo "⚠ Warning: Cannot change ownership (use: sudo chown -R 1000:1000 ./cs2-data before starting)"
-# Starte das originale CS2 Entrypoint als steam user
-exec su steam -c "bash /home/steam/entry.sh"
+
+# Wechsle zu steam user und starte CS2
+exec su steam -c "cd /home/steam && bash /home/steam/entry.sh"
