@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Building CS2 base container (using joedwards32/cs2)..."
-docker build -f Dockerfile.base -t cs2-base-with-files .
+docker build -f gameserver/Dockerfile.base -t cs2-base-with-files ./gameserver/
 
 echo "Creating CS2 game files volume..."
 docker volume create cs2-game-files
