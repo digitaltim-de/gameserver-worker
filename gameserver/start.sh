@@ -56,5 +56,8 @@ echo "=== Starting CS2 Gameserver ==="
 # Versuche Steam-Verzeichnis Berechtigung zu setzen (falls möglich)
 chown -R steam:steam /home/steam 2>/dev/null || echo "⚠ Warning: Cannot change ownership (use: sudo chown -R 1000:1000 ./cs2-data before starting)"
 
+# Stelle sicher, dass cs2-server-data Verzeichnis existiert
+mkdir -p /home/steam/cs2-server-data
+
 # Wechsle zu steam user und starte CS2
 exec su steam -c "cd /home/steam && bash /home/steam/entry.sh"

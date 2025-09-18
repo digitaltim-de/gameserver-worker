@@ -1,0 +1,13 @@
+FROM joedwards32/cs2
+
+USER root
+
+# Erstelle ein Volume für die CS2-Dateien
+VOLUME ["/home/steam/cs2-dedicated"]
+
+# Stelle sicher, dass alle CS2-Dateien vorhanden sind
+USER steam
+WORKDIR /home/steam
+
+# Starte Container und halte ihn am Leben für Volume-Kopierung
+CMD ["sleep", "infinity"]
