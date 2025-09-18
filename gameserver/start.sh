@@ -14,6 +14,10 @@ if [ -z "${CUSTOMER_ID}" ]; then
     exit 1
 fi
 
+# Bereinige CUSTOMER_ID von Leerzeichen
+export CUSTOMER_ID=$(echo "$CUSTOMER_ID" | xargs)
+echo "✓ Using Customer ID: $CUSTOMER_ID"
+
 echo "✓ All required environment variables are set"
 
 # Konfiguriere Benutzer und Passwörter basierend auf Environment-Variablen
