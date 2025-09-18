@@ -36,5 +36,7 @@ service ssh start
 echo "✓ SSH server started"
 
 echo "=== Starting CS2 Gameserver ==="
-# Starte das originale CS2 Entrypoint
-exec bash /home/steam/entry.sh
+# Versuche Steam-Verzeichnis Berechtigung zu setzen (falls möglich)
+chown -R steam:steam /home/steam 2>/dev/null || echo "⚠ Warning: Cannot change ownership (use: sudo chown -R 1000:1000 ./cs2-data before starting)"
+# Starte das originale CS2 Entrypoint als steam user
+exec su steam -c "bash /home/steam/entry.sh"
