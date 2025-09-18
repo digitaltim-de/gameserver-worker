@@ -10,13 +10,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     iptables \
  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Einfacher FTP-User (Passwort bitte ändern!)
-RUN useradd -m -s /bin/bash cs2ftp && \
-    echo "cs2ftp:changeme" | chpasswd
+# Standard Environment-Variablen (können beim Container-Start überschrieben werden)
+ENV FTP_USER=cs2ftp
+ENV FTP_PASSWORD=changeme
+ENV ROOT_PASSWORD=changeme
 
-# SSH-Server vorbereiten und root-Passwort setzen
-RUN echo "root:changeme" | chpasswd && \
-    mkdir -p /var/run/sshd && \
+# Einfacher FTP-User (wird beim Start dynamisch konfiguriert)
+RUN useradd -m -s /bin/bash cs2ftp
+
+# SSH-Server vorbereiten (Passwort wird beim Start gesetzt)
+RUN mkdir -p /var/run/sshd && \
     sed -i 's/^#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # Ports freigeben
