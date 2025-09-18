@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Einfacher FTP-User (Passwort bitte ändern!)
 RUN useradd -m -s /bin/bash cs2ftp && \
-    echo "gameserver:changeme" | chpasswd
+    echo "cs2ftp:changeme" | chpasswd
 
 # SSH-Server vorbereiten und root-Passwort setzen
 RUN echo "root:changeme" | chpasswd && \

@@ -3,8 +3,8 @@ set -e
 
 echo "Building CS2 Gameserver Base Image..."
 
-# Build the base Docker image
-docker build -t cs2-gameserver-base .
+# Build the base Docker image from gameserver directory
+docker build -t cs2-gameserver-base ./gameserver
 
 echo "Base image 'cs2-gameserver-base' built successfully!"
 echo ""
